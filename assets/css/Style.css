@@ -50,27 +50,30 @@ body {
 header {
     display: flex;
     align-items: center;
-    padding: 20px;
+    justify-content: center;
+    padding: 25px;
     background-color: #ccc;
 }
 
 header img {
     border-radius: 50%;
-    width: 80px;
-    height: 80px;
-    margin-right: 15px;
+    width: 100px;
+    height: 100px;
+    margin-right: 50px;
+    border: 3px solid #000; 
 }
 
 header h1 {
-    font-size: 50px;
-    font-family: bold,
+    font-size: 100px;
+    font-weight: bolder;
 }
+
 
 .saldo-container {
     display: flex;
     align-items: baseline;
     justify-content: center;
-    gap: 24px;
+    gap: 10px 20px;
 }
 
 .material-icons {
@@ -155,9 +158,9 @@ footer {
 
 button {
     background-color: #000000;
-    color: #fff;
+    color: #858585;
     border: none;
-    padding: 15px 30px;
+    padding: 50px px; 
     font-size: 20px;
     border-radius: 90px;
     cursor: pointer;
@@ -165,5 +168,5 @@ button {
 }
 
 button:hover{
-    background-color: #0603c7; 
+    background-color: #201e7a; 
 }

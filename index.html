@@ -93,7 +93,7 @@
             background-color: #000000;
             color: #fff;
             border: none;
-            padding: 15px 30px;
+            padding: 15px 50px;
             font-size: 20px;
             border-radius: 90px;
             cursor: pointer;
@@ -150,7 +150,6 @@
     <header>
         <img src="assets/imagens/front-view-smiley-man-taking-selfie.jpg" alt="Foto de Perfil">
         <h1>Futuro Seguro</h1>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     </header>
 
 
@@ -192,20 +191,40 @@
         const chatbot = document.getElementById('chatbot');
         const chatbotMessage = document.getElementById('chatbot-message');
 
-
         chatbot.addEventListener('mouseenter', () => {
             chatbotMessage.style.display = 'block';
         });
-
 
         chatbot.addEventListener('mouseleave', () => {
             chatbotMessage.style.display = 'none';
         });
 
-
         chatbot.addEventListener('click', () => {
-            alert('Abrindo o gráfico...');
+            const graficoContainer = document.createElement('div');
+            Object.assign(graficoContainer.style, {
+                position: 'fixed',
+                bottom: '100px',
+                right: '30px',
+                width: '300px',
+                height: '300px',
+                backgroundColor: '#fff',
+                border: '1px solid #ccc',
+                borderRadius: '10px',
+                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                zIndex: '1002'
+            });
+            graficoContainer.innerHTML = `
+                <div style="padding: 20px; font-size: 16px; color: #333;">
+                    <h3>Futuro Seguro</h3>
+                    <p>Seu investimento está crescendo de forma constante. Continue acompanhando para ver mais resultados positivos.</p>
+                    <button id="closeGrafico" style="display: block; margin: 20px auto 0; background-color: #007bff; color: #fff; border: none; border-radius: 25px; padding: 10px 20px; cursor: pointer;">Fechar</button>
+                </div>
+            `;
+            document.body.appendChild(graficoContainer);
 
+            graficoContainer.querySelector('#closeGrafico').addEventListener('click', () => {
+                graficoContainer.remove();
+            });
         });
     </script>
 
