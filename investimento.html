@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Futuro Seguro</title>
+    <title>Futuro Seguro - Investimento</title>
     <link rel="stylesheet" type="text/css" href="assets/css/Style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -184,21 +184,21 @@
     <div class="gastos-container">
         <div class="gastos">
             <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span>Mercado</span>
+                <span>Bolsa de Valores</span>
                 <span style="flex-grow: 1; text-align: right; margin-right: 10px;">R$ 5000,00</span>
                 <div class="info">i</div>
             </div>
             <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span>Contas</span>
-                <span style="flex-grow: 1; text-align: right; margin-right: 10px;">R$ 1300,00</span>
+                <span>ETFs</span>
+                <span style="flex-grow: 1; text-align: right; margin-right: 10px;">R$ 3000,00</span>
                 <div class="info">i</div>
             </div>
             <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span>Restaurante</span>
-                <span style="flex-grow: 1; text-align: right; margin-right: 10px;">R$ 2500,00</span>
+                <span>Imóveis</span>
+                <span style="flex-grow: 1; text-align: right; margin-right: 10px;">R$ 2000,00</span>
                 <div class="info">i</div>
             </div>
-        </div> 
+        </div>
     </div>
     </div>
     <div id="chatbot">
@@ -259,54 +259,24 @@
 
     <div>
         <footer>
-            <button onclick="mostrarFormularioGasto()">ADICIONAR GASTOS</button>
+            <button onclick="adicionarInvestimento()">ADICIONAR INVESTIMENTO</button>
         </footer>
     </div>
 
-    <div id="formularioGasto" style="display: none; position: fixed; bottom: 100px; right: 30px; width: 300px; background-color: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); z-index: 1002;">
-        <h2>Adicionar Gasto</h2>
-        <label for="descricao">Descrição:</label>
-        <input type="text" id="descricao" style="width: 100%; margin-bottom: 10px;">
-        <label for="valor">Valor:</label>
-        <input type="number" id="valor" style="width: 100%; margin-bottom: 10px;">
-        <button onclick="adicionarGasto()">Adicionar</button>
-        <button onclick="fecharFormularioGasto()">Cancelar</button>
-    </div>
-
     <script>
-        function mostrarFormularioGasto() {
-            document.getElementById('formularioGasto').style.display = 'block';
-        }
-
-        function fecharFormularioGasto() {
-            document.getElementById('formularioGasto').style.display = 'none';
-        }
-
-        function adicionarGasto() {
-            const descricao = document.getElementById('descricao').value;
-            const valor = parseFloat(document.getElementById('valor').value);
-
-            if (descricao && valor) {
-                const gastosContainer = document.querySelector('.gastos-container .gastos');
-                const novoGasto = document.createElement('div');
-                novoGasto.classList.add('gasto-item');
-                novoGasto.innerHTML = `
-                    <span>${descricao}</span>
-                    <span style="flex-grow: 1; text-align: right; margin-right: 10px;">R$ ${valor.toFixed(2)}</span>
-                    <div class="info" onclick="removerGasto(this)">i</div>
-                `;
-                gastosContainer.appendChild(novoGasto);
-
-                // Atualizar saldo disponível
-                const saldoElement = document.querySelector('.saldo p:nth-child(2)');
-                let saldoAtual = parseFloat(saldoElement.textContent.replace('R$', '').replace('.', '').replace(',', '.'));
-                saldoAtual -= valor;
-                saldoElement.textContent = `R$ ${saldoAtual.toFixed(2).replace('.', ',')}`;
-
-                fecharFormularioGasto();
-            } else {
-                alert('Por favor, preencha todos os campos.');
-            }
+        function adicionarInvestimento() {
+            const novoInvestimento = document.createElement('div');
+            novoInvestimento.style.display = 'flex';
+            novoInvestimento.style.justifyContent = 'space-between';
+            novoInvestimento.style.alignItems = 'center';
+            novoInvestimento.style.padding = '10px 0';
+            novoInvestimento.style.borderBottom = '1px solid #ccc';
+            novoInvestimento.innerHTML = `
+                <span>Novo Investimento</span>
+                <span style="flex-grow: 1; text-align: right; margin-right: 10px;">R$ 0,00</span>
+                <div class="info">i</div>
+            `;
+            document.querySelector('.gastos').appendChild(novoInvestimento);
         }
     </script>
 
